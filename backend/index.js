@@ -5,7 +5,9 @@ const Transaction = require('./models/Transaction');
 const mongoose = require('mongoose');
 const app = express();
 
-app.use(cors());
+app.use(cors({
+    origin: process.env.REACT_APP_API_URL
+  }));
 app.use(express.json());
 
 app.get("/api/test", (req, res) => {
