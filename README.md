@@ -10,9 +10,8 @@ Features
 ✔️ Backend hosted on Render and frontend deployed on Vercel.
 
 Tech Stack
-🔹 Frontend: React, Vite, CSS
+🔹 Frontend: React, CSS
 🔹 Backend: Node.js, Express.js
 🔹 Database: MongoDB (MongoDB Atlas)
 🔹 Hosting: Render (Backend), Vercel (Frontend)
 🔹 State Management: React useState & useEffect
-🔹 API Communication: Fetch API
