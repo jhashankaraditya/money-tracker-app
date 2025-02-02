@@ -80,7 +80,6 @@ function App() {
         setError("An error occurred while adding the transaction.");
       });
   } 
-  console.log("API URL:", process.env.REACT_APP_API_URL);
 
   let balance = transactions.reduce((sum, transaction) => sum + Number(transaction.price) || 0, 0);
 
