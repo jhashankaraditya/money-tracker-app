@@ -4,9 +4,10 @@ require('dotenv').config();
 const Transaction = require('./models/Transaction');
 const mongoose = require('mongoose');
 const app = express();
+const PORT = process.env.PORT || 3001;
 
 app.use(cors({
-    origin: process.env.REACT_APP_API_URL
+    origin: "*",
   }));
 app.use(express.json());
 
@@ -56,10 +57,6 @@ app.delete('/transaction/:id', async (req, res) => {
     }
 });
 
-app.get("*",(req,res)=>{
-    res.sendFile(path.resolve(_dirname,"frontend","dist","index.html"));
-})
-
-app.listen(3001, () => {
-    console.log("Server is running on port 3001");
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });

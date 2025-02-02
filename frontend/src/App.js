@@ -47,7 +47,7 @@ function App() {
       return;
     }
 
-    setError(""); // Clear error if input is valid
+    setError("");
 
     const url = process.env.REACT_APP_API_URL + "/transaction";
   
@@ -80,6 +80,7 @@ function App() {
         setError("An error occurred while adding the transaction.");
       });
   } 
+  console.log("API URL:", process.env.REACT_APP_API_URL);
 
   let balance = transactions.reduce((sum, transaction) => sum + Number(transaction.price) || 0, 0);
 
@@ -88,7 +89,7 @@ function App() {
       <h1>{balance}</h1>
       <form onSubmit={addNewTransaction}>
 
-        {error && <p style={{ color: "red" }}>{error}</p>} {/* Display error message */}
+        {error && <p style={{ color: "red" }}>{error}</p>}
 
         <div className='basic'>
           <input type="text" placeholder={'Item'} value={name} required onChange={(event) => setName(event.target.value)} />
