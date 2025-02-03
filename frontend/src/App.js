@@ -47,10 +47,15 @@ function App() {
       return;
     }
 
+    if (Number(price) < 1) {
+      setError("Price must be at least 1.");
+      return;
+    }
+
     setError("");
 
     const url = process.env.REACT_APP_API_URL + "/transaction";
-  
+
     fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -58,10 +63,10 @@ function App() {
         name,
         description,
         dateTime,
-        price: Number(price)
+        price: Number(price),
       }),
     })
-      .then(response => response.json())
+      .then((response) => response.json())
       .then((newTransaction) => {
         if (!newTransaction || newTransaction.error) {
           setError(newTransaction.error || "Failed to add transaction.");
@@ -73,13 +78,13 @@ function App() {
         setDateTime("");
         setPrice("");
 
-        setTransactions(prevTransactions => [...prevTransactions, newTransaction]);
+        setTransactions((prevTransactions) => [...prevTransactions, newTransaction]);
       })
-      .catch(error => {
+      .catch((error) => {
         console.error("Error adding transaction:", error);
         setError("An error occurred while adding the transaction.");
       });
-  } 
+  }
 
   let balance = transactions.reduce((sum, transaction) => sum + Number(transaction.price) || 0, 0);
 
@@ -100,7 +105,15 @@ function App() {
         </div>
 
         <div className='price'>
-          <input type="text" placeholder={'Price'} value={price} required min={"1"} onChange={(event) => setPrice(event.target.value)} />
+          <input
+            type="number"
+            placeholder="Price"
+            value={price}
+            required
+            min="1"
+            onChange={(event) => setPrice(event.target.value)}
+          />
+
         </div>
 
         <button>Add New Transaction</button>

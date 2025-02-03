@@ -28,6 +28,10 @@ app.post("/transaction", async (req, res) => {
             return res.status(400).json({ error: "Name and Description must contain only English letters and spaces." });
         }
 
+        if (price < 1) {
+            return res.status(400).json({ error: "Price must be at least 1." });
+        }
+
         const transaction = await Transaction.create({ name, description, dateTime, price });
         res.json(transaction);
     } catch (error) {
