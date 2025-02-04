@@ -1,6 +1,4 @@
-Money Tracker App
-Overview
-The Money Tracker App is a full-stack web application designed to help users track their pending transactions. It allows users to add and delete transactions while displaying key details such as description, amount, and transaction date. The app also calculates the total pending amount that needs to be paid.
+DueTrack is a full-stack web application designed to help users track their pending transactions. It allows users to add and delete transactions while displaying key details such as description, amount, and transaction date. The app also calculates the total pending amount that needs to be paid.
 
 Features
 ✔️ Add new transactions with item name, description, date, and amount.
