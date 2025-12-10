@@ -14,13 +14,13 @@ function App() {
   }, []);
 
   async function getTransactions() {
-    const url = process.env.REACT_APP_API_URL + '/transaction';
+    const url = process.env.REACT_APP_API_URL + '/api/transaction';
     const response = await fetch(url);
     return await response.json();
   }
 
   async function handleDelete(transactionId) {
-    const url = `${process.env.REACT_APP_API_URL}/transaction/${transactionId}`;
+    const url = `${process.env.REACT_APP_API_URL}/api/transaction/${transactionId}`;
     const response = await fetch(url, {
       method: 'DELETE',
     });
@@ -36,7 +36,7 @@ function App() {
 
   function addNewTransaction(event) {
     event.preventDefault();
-    const url = process.env.REACT_APP_API_URL + '/transaction';
+    const url = process.env.REACT_APP_API_URL + '/api/transaction';
     fetch(url, {
       method: "POST",
       headers: { "content-type": "application/json" },
